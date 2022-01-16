@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: geteway
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:9000
+      fail-fast: true
+      username: clouduser
+      password: tv-MpZ6D6@N%J&n?
+

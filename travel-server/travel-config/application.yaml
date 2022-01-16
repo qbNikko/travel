@@ -1,0 +1,14 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:./share
+  profiles:
+    active: native
+  security:
+    user:
+      name: clouduser
+      password: tv-MpZ6D6@N%J&n?

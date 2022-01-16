@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.6.2' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE' apply false
+}
+
+group 'ru.qbnikko.app.travel'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '17'
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+allprojects {
+    group = 'ru.qbnikko.app.travel'
+    version = '1.0-SNAPSHOT'
+    sourceCompatibility = '17'
+}
+subprojects {
+    apply plugin: 'java'
+    apply plugin: "org.springframework.boot"
+    apply plugin: "io.spring.dependency-management"
+
+    ext {
+        springBootVersion='2.6.2'
+        junitVersion='5.8.1'
+        set('springCloudVersion', "2021.0.0")
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    test {
+        useJUnitPlatform()
+    }
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation("org.springframework.boot:spring-boot-starter-jetty")
+
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+        testImplementation 'org.springframework.security:spring-security-test'
+        testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    }
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+}

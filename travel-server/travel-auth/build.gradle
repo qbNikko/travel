@@ -1,0 +1,20 @@
+plugins {
+    id 'application'
+}
+
+group = 'ru.qbnikko.app.travel'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+
+dependencies {
+    implementation("org.springframework.cloud:spring-cloud-starter-config") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.5.RELEASE'
+}
+

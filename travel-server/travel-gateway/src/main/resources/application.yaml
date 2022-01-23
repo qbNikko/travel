@@ -9,4 +9,10 @@ spring:
       fail-fast: true
       username: clouduser
       password: tv-MpZ6D6@N%J&n?
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
 

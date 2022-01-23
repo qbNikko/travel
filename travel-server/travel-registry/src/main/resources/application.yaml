@@ -9,11 +9,15 @@ spring:
       fail-fast: true
       username: clouduser
       password: tv-MpZ6D6@N%J&n?
+security:
+  user:
+    name: admin
+    password: password
 eureka:
   instance:
     prefer-ip-address: true
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    register-with-eureka: false
+    fetch-registry: false
     server:
       waitTimeInMsWhenSyncEmpty: 0

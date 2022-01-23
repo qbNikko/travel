@@ -1,7 +1,7 @@
 server:
-  servlet:
-    context-path: /auth
-  port: 9003
+#  servlet:
+#    context-path: /auth
+  port: 0
 spring:
   data:
     mongodb:
